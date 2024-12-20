@@ -62,10 +62,10 @@ export default function Profile() {
           {isResume ? (
             <a
               target="blank"
-              href="https://youtube.com"
+              href={user?.profile?.resume}
               className="text-blue-500 w-full hover:underline cursor-pointer"
             >
-              YT
+              {user?.profile?.resumeOrignalName}
             </a>
           ) : (
             <span>NA</span>
