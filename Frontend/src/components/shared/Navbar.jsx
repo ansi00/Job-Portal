@@ -67,7 +67,7 @@ export default function Navbar() {
               <PopoverTrigger asChild>
                 <Avatar className="cursor-pointer">
                   <AvatarImage
-                    src="https://github.com/shadcn.png"
+                    src={user?.profile?.profilePhoto}
                     alt="@shadcn"
                   />
                 </Avatar>
@@ -76,14 +76,14 @@ export default function Navbar() {
                 <div className="">
                   <Avatar className="cursor-pointer">
                     <AvatarImage
-                      src="https://github.com/shadcn.png"
+                      src={user?.profile?.profilePhoto}
                       alt="@shadcn"
                     />
                   </Avatar>
                   <div>
-                    <h4 className="font-medium">Anas Abbas</h4>
+                    <h4 className="font-medium">{user?.fullName}</h4>
                     <p className="text-sm text-muted-foreground">
-                      Lorem ipsum dolor sit amet.
+                      {user?.profile?.bio}
                     </p>
                   </div>
                 </div>
