@@ -10,7 +10,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { useSelector } from "react-redux";
+import useGetCompanyById from "@/hooks/useGetCompanyById";
 export default function CompanySetup() {
+  const params = useParams();
+  useGetCompanyById(params.id);
   const navigate = useNavigate();
   const [input, setInput] = useState({
     name: "",
@@ -21,7 +24,7 @@ export default function CompanySetup() {
   });
   const { singleCompany } = useSelector((store) => store.company);
   const [loading, setLoading] = useState(false);
-  const params = useParams();
+
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
