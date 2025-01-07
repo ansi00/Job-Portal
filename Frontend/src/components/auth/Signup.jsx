@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../shared/Navbar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -11,7 +11,6 @@ import { toast } from "sonner";
 import { setLoading } from "@/redux/authSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { Loader2 } from "lucide-react";
-
 export default function Signup() {
   const [input, setInput] = useState({
     fullName: "",
@@ -24,7 +23,7 @@ export default function Signup() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading } = useSelector((store) => store.auth);
+  const { loading, user } = useSelector((store) => store.auth);
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -61,6 +60,11 @@ export default function Signup() {
       dispatch(setLoading(false));
     }
   };
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, []);
   return (
     <div>
       <Navbar />

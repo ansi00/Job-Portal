@@ -1,7 +1,6 @@
 import React from "react";
 import LatestJobCards from "./LatestJobCards";
 import { useSelector } from "react-redux";
-
 export default function LatestJobs() {
   const { allJobs } = useSelector((store) => store.job);
   return (
